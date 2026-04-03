@@ -83,4 +83,5 @@ mallapi/
 ---
 
 ## 실행 화면
-(여기에 이미지/GIF 추가)
+![ezgif com-animated-gif-maker](https://github.com/user-attachments/assets/5af5ee33-fbc6-4b6d-9879-daaabca17195)
+
