@@ -54,7 +54,7 @@
 
 ## 프로젝트 구조
 
-'''
+```
 mallapi/
  ├── backend/ 
  │ ├── src/ 
@@ -67,7 +67,7 @@ mallapi/
  │ ├── package.json 
  │ ├── vite.config.ts 
  │ └── tsconfig.json 
-'''
+```
 ---
 
 ## 실행 방법
