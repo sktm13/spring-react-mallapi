@@ -1,0 +1,18 @@
+# backend
+backend/.gradle/
+backend/build/
+backend/*.log
+
+# frontend
+frontend/node_modules/
+frontend/dist/
+
+# 공통
+.env
+*.env
+
+# OS / IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
