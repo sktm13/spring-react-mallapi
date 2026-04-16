@@ -1,3 +1,5 @@
+import { getThumbnailImage } from "../../util/imageUtil";
+
 function CartItemComponent({
   cartItem,
   changeCart,
@@ -14,11 +16,7 @@ function CartItemComponent({
         {/* 이미지 */}
         <div className="w-20 h-20 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden">
           <img
-            src={
-              imageFile
-                ? `http://localhost:8080/api/products/view/s_${imageFile}`
-                : `http://localhost:8080/api/products/view/s_default.jpeg`
-            }
+            src={getThumbnailImage(imageFile)}
             className="w-full h-full object-cover"
           />
         </div>

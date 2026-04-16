@@ -3,6 +3,7 @@ import useCustomMove from "../../hooks/useCustomMove";
 import PendingModal from "../common/pendingModal";
 import ResultModal from "../common/resultModal";
 import jwtAxios from "../../util/jwtUtil";
+import { getThumbnailImage } from "../../util/imageUtil";
 
 interface ProductTaskResult {
   actionType: string;
@@ -133,7 +134,7 @@ function ModifyComponent({ product }: { product: ProductDTO }) {
                 <img
                   alt="img"
                   className="w-full h-full object-cover"
-                  src={`http://localhost:8080/api/products/view/s_${imgFile}`}
+                  src={getThumbnailImage(imgFile)}
                 />
               </div>
 

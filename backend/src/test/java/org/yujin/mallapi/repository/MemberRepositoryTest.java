@@ -59,6 +59,18 @@ public class MemberRepositoryTest {
     }
 
     @Test
+    public void testInsertUser1() {
+        Member member = Member.builder()
+                .email("user1@aaa.com")
+                .pw(passwordEncoder.encode("1111"))
+                .nickname("user1")
+                .build();
+        member.addRole(MemberRole.USER);
+
+        memberRepository.save(member);
+    }
+
+    @Test
     public void testRead() {
 
         String email = "user9@aaa.com";

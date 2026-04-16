@@ -1,5 +1,6 @@
 import useCustomCart from "../../hooks/useCustomCart";
 import useCustomMove from "../../hooks/useCustomMove";
+import { getProductImage } from "../../util/imageUtil";
 
 function ReadComponent({ product }: { product: ProductDTO }) {
   const { moveToList, moveToModify } = useCustomMove();
@@ -37,8 +38,8 @@ function ReadComponent({ product }: { product: ProductDTO }) {
               >
                 <img
                   alt="product"
-                  className="w-full h-[320px] object-cover"
-                  src={`http://localhost:8080/api/products/view/${imgFile}`}
+                  className="w-full h-320px object-cover"
+                  src={getProductImage(imgFile)}
                 />
               </div>
             ))
@@ -46,8 +47,8 @@ function ReadComponent({ product }: { product: ProductDTO }) {
             <div className="w-full bg-gray-100 rounded-2xl overflow-hidden">
               <img
                 alt="default"
-                className="w-full h-[320px] object-cover"
-                src={`http://localhost:8080/api/products/view/default.jpeg`}
+                className="w-full h-320px object-cover"
+                src={getProductImage()}
               />
             </div>
           )}

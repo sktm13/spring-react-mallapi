@@ -1,4 +1,5 @@
 import useCustomMove from "../../hooks/useCustomMove";
+import { getThumbnailImage } from "../../util/imageUtil";
 import PageComponent from "../common/pageComponent";
 
 function ListComponent({
@@ -24,11 +25,7 @@ function ListComponent({
                 <img
                   alt="product"
                   className="w-full h-full object-cover"
-                  src={
-                    fileName && fileName.trim() !== ""
-                      ? `http://localhost:8080/api/products/view/s_${fileName}`
-                      : `http://localhost:8080/api/products/view/s_default.jpeg`
-                  }
+                  src={getThumbnailImage(fileName)}
                 />
               </div>
 
