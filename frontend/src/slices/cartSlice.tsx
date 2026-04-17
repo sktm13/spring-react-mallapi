@@ -31,13 +31,13 @@ const cartSlice = createSlice({
         )
 
             .addCase(
-                getCartItemsAsync.pending, (state, action) => {
+                getCartItemsAsync.pending, (state, _action) => {
                     state.status = 'pending'
                 }
             )
 
             .addCase(
-                getCartItemsAsync.rejected, (state, action) => {
+                getCartItemsAsync.rejected, (state, _action) => {
                     state.status = 'rejected'
                 }
             )
@@ -51,12 +51,12 @@ const cartSlice = createSlice({
                 }
             )
             .addCase(
-                postChangeCartAsync.pending, (state, action) => {
+                postChangeCartAsync.pending, (state, _action) => {
                     state.status = 'pending'
                 }
             )
             .addCase(
-                postChangeCartAsync.rejected, (state, action) => {
+                postChangeCartAsync.rejected, (state, _action) => {
                     state.status = 'rejected'
                 }
             )

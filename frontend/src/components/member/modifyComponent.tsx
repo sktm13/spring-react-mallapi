@@ -14,7 +14,7 @@ const initState: ModifyResult = {
     error: ''
 }
 
-const modifyAction = async (state: ModifyResult, formData: FormData) => {
+const modifyAction = async (_state: ModifyResult, formData: FormData) => {
 
     const email = formData.get("email") as string
     const pw = formData.get("pw") as string
@@ -25,7 +25,7 @@ const modifyAction = async (state: ModifyResult, formData: FormData) => {
     }
     try {
 
-        await jwtAxios.put('http://localhost:8080/api/member/modify', { email, pw, nickname });
+        await jwtAxios.put('/api/member/modify', { email, pw, nickname });
 
     } catch (err: any) {
 

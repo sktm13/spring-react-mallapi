@@ -14,7 +14,7 @@ const initState: ProductAddResult = {
 };
 
 const addAsyncAction = async (
-  state: ProductAddResult,
+  _state: ProductAddResult,
   formData: FormData
 ): Promise<ProductAddResult> => {
   console.log("addAsyncAction.........");
@@ -27,7 +27,7 @@ const addAsyncAction = async (
     return { error: "Insert Product Name" };
   }
 
-  const res = await jwtAxios.post("http://localhost:8080/api/products/", formData);
+  const res = await jwtAxios.post("/api/products/", formData);
 
   console.log(res.data);
 

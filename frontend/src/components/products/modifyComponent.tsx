@@ -17,7 +17,7 @@ const initState: ProductTaskResult = {
 };
 
 const modifyDeleteAsyncAction = async (
-  state: ProductTaskResult,
+  _state: ProductTaskResult,
   formData: FormData
 ): Promise<ProductTaskResult> => {
   const pno = formData.get("pno");
@@ -26,9 +26,9 @@ const modifyDeleteAsyncAction = async (
   let res;
 
   if (actionType === "modify") {
-    res = await jwtAxios.put(`http://localhost:8080/api/products/${pno}`, formData);
+    res = await jwtAxios.put(`/api/products/${pno}`, formData);
   } else if (actionType === "delete") {
-    res = await jwtAxios.delete(`http://localhost:8080/api/products/${pno}`);
+    res = await jwtAxios.delete(`/api/products/${pno}`);
   }
 
   return { actionType: actionType, result: res?.data?.RESULT };

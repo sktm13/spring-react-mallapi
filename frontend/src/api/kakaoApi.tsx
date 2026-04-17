@@ -1,17 +1,18 @@
 import axios from "axios"
 
-const rest_api_key = `a450751b3a6942dbbc641906b158ef5a` //REST키값 
+// 환경변수
+const API_SERVER_HOST = import.meta.env.VITE_API_SERVER
+const FRONTEND_HOST = import.meta.env.VITE_FRONTEND_HOST
 
-const redirect_uri = `http://localhost:5173/member/kakao`
+const rest_api_key = `a450751b3a6942dbbc641906b158ef5a`
+
+// 수정
+const redirect_uri = `${FRONTEND_HOST}/member/kakao`
 
 const auth_code_path = `https://kauth.kakao.com/oauth/authorize`
-
-//엑세스 토큰 얻기
 const access_token_url = `https://kauth.kakao.com/oauth/token`
 
-//보안 코드 활성화시 사용
 const client_secret = 'UDIZ1FtDYEaB4tpN06XE29lPxNadXG7j'
-
 
 
 export const getKakaoLoginLink = () => {
@@ -22,15 +23,12 @@ export const getKakaoLoginLink = () => {
 }
 
 
-
 export const getAccessToken = async (authCode: string) => {
 
     const header = {
-
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
         }
-
     }
 
     const params = {
@@ -43,15 +41,16 @@ export const getAccessToken = async (authCode: string) => {
 
     const res = await axios.post(access_token_url, params, header)
 
-    const accessToken = res.data.access_token
-
-    return accessToken
-
+    return res.data.access_token
 }
 
+
+// 수정
 export const getMemberWithAccessToken = async (accessToken: string) => {
 
-    const res = await axios.get(`http://localhost:8080/api/member/kakao?accessToken=${accessToken}`)
+    const res = await axios.get(
+        `${API_SERVER_HOST}/api/member/kakao?accessToken=${accessToken}`
+    )
 
     return res.data
 }

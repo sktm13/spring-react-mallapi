@@ -5,7 +5,7 @@ import jwtAxios from "../../util/jwtUtil";
 
 export async function loadProduct({ params }: LoaderFunctionArgs) {
   const { pno } = params;
-  const res = await jwtAxios.get(`http://localhost:8080/api/products/${pno}`);
+  const res = await jwtAxios.get(`/api/products/${pno}`);
 
   return res.data;
 }

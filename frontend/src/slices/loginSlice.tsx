@@ -33,7 +33,7 @@ const loginSlice = createSlice({
     reducers: {
 
         //쿠키가 있다면 데이터를 반영
-        save: (state, action) => {
+        save: (_state, action) => {
             const payload = action.payload  //{소셜로그인 회원이 사용}  
 
             const newState = { ...payload, status: 'saved' }
@@ -44,7 +44,7 @@ const loginSlice = createSlice({
         },
 
         //login은 사용하지 않음
-        logout: (state, action) => {
+        logout: (_state, _action) => {
 
             console.log("logout")
 
@@ -59,7 +59,7 @@ const loginSlice = createSlice({
     extraReducers: (builder) => {
         //addCase 
         //           1. fufilled  2. pending  3. rejected
-        builder.addCase(loginPostAsync.fulfilled, (state, action) => {
+        builder.addCase(loginPostAsync.fulfilled, (_state, action) => {
 
             console.log("fulfilled")
 
@@ -73,11 +73,11 @@ const loginSlice = createSlice({
 
             return newState
         })
-            .addCase(loginPostAsync.pending, (state, action) => {
+            .addCase(loginPostAsync.pending, (state, _action) => {
                 console.log("pending")
                 state.status = 'pending'
             })
-            .addCase(loginPostAsync.rejected, (state, action) => {
+            .addCase(loginPostAsync.rejected, (state, _action) => {
                 console.log("rejected")
                 state.status = 'rejected'
             })
