@@ -46,6 +46,12 @@ public class CustomSecurityConfig {
 
         http.userDetailsService(customUserDetailsService);
 
+
+        //ELB health check 권한 부여
+        http.authorizeHttpRequests(auth -> auth
+                .requestMatchers("/health").permitAll()
+                .anyRequest().authenticated());
+
         // 임시 로그인url 생성
         http.formLogin(config -> {
             config.loginProcessingUrl("/api/member/login");
@@ -53,10 +59,10 @@ public class CustomSecurityConfig {
             config.failureHandler(new APILoginFailHandler());
         });
 
-        //체크필터 추가
+        // 체크필터 추가
         http.addFilterBefore(new JWTCheckFilter(), UsernamePasswordAuthenticationFilter.class);
 
-        //deniedHandler 추가
+        // deniedHandler 추가
         http.exceptionHandling(config -> config.accessDeniedHandler(new CustomAccessDeniedHandler()));
 
         return http.build();
